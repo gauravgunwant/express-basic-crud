@@ -1,5 +1,11 @@
 import express from "express";
-const port = 3000;
+import dotenv from "dotenv";
+
+dotenv.config({
+	path: "./.env",
+});
+const port = process.env.PORT;
+
 let app = express();
 
 let nData = [];
@@ -74,5 +80,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log("Listening to http://localhost:3000");
+	console.log(`Listening to http://localhost:${port}`);
 });
